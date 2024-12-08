@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="createac.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Sign In</h1>
+        <form id="signInForm" action="signin.js" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <label for="role">Role:</label>
+            <select id="role" name="role" required>
+                <option value="admin">Admin</option>
+                <option value="quizCreator">Quiz Creator</option>
+                <option value="quizTaker">Quiz Taker</option>
+            </select>
+
+            <button type="submit">Sign In</button>
+        </form>
+        <p>Don't have an account? <a href="register.html">Register here</a>.</p>
+    </div>
+</body>
+
+</html>

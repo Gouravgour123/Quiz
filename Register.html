@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="createac.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <form id="registerForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password"
+                required>
+
+            <label for="role">Role:</label>
+            <select id="role" name="role" required>
+                <option value="admin">Admin</option>
+                <option value="quizCreator">Quiz Creator</option>
+                <option value="quizTaker">Quiz Taker</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="signin.html">Sign in here</a>.</p>
+    </div>
+
+    <script>
+        // Attach event listener to the form submission
+        document.getElementById('registerForm').addEventListener('submit', async function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Validate password and confirm password
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // Collect form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const role = document.getElementById('role').value;
+
+            // Send data to the Google Apps Script backend
+            try {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbyo2b0rMxw3MOotxpdBMdQ-2dIFHaZQm6OCYTWauwHwx9Jh8o5eYdql_z2cGnEL5WhpbQ/exec', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'registerUser',
+                        data: {
+                            name: name,
+                            email: email,
+                            password: password,
+                            role: role
+                        }
+                    })
+                });
+
+                const result = await response.json();
+                if (result.status === 'success') {
+                    alert('Registration successful!');
+                    // Redirect or clear the form here if needed
+                    document.getElementById('registerForm').reset();
+                } else {
+                    alert('Registration failed: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error during registration:', error);
+                alert('An error occurred while registering. Please try again later.');
+            }
+        });
+    </script>
+</body>
+
+</html>
