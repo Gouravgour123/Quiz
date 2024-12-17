@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #444;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #4CAF50; 
+    color: white;
+}
+
+header .company-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold; 
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+header .logout-btn {
+    background-color: red; 
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+header .logout-btn:hover {
+    background-color: #018786; 
+}
+
+
+.main-content {
+    display: flex;
+    height: calc(100vh - 70px); 
+}
+
+.left-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blanchedalmond; 
+}
+
+.left-image img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
+
+.right-content {
+    flex: 1;
+    padding: 2rem;
+    background-color: blanchedalmond; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.right-content ul li .arrow {
+    margin-left: 10px; 
+    font-size: 1.5rem;
+    color: #4CAF50;
+}
+
+
+.arrow {
+    margin-left: 10px; 
+}
+
+
+.right-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #4CAF50; 
+}
+
+.right-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: black;
+}
+
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .left-image, .right-content {
+        flex: none;
+        height: auto;
+    }
+}

@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "node": "^23.4.0"
+  },
+  "name": "quizweb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anjali012005/QuizWeb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anjali012005/QuizWeb/issues"
+  },
+  "homepage": "https://github.com/anjali012005/QuizWeb#readme",
+  "description": ""
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizeByte</title>
+    <link rel="stylesheet" href="Quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="company-name">QuizeByte</div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="Quiz.html"><i class="fas fa-question-circle"></i> Take Quiz</a></li>
+                <li><a href="Admin.html"><i class="fas fa-edit"></i> Create Quiz</a></li>
+                <li><a href="Faq.html"><i class="fas fa-info-circle"></i> FAQ</a></li>
+            </ul>
+        </nav>
+        <button class="logout-btn">Logout</button>
+    </header>
+
+    <div class="quiz-container">
+        <div class="quiz-rules">
+            <h2>Welcome to the QuizeByte</h2>
+            <p>Prepare to test your coding knowledge and skills. Make sure to read the rules before starting the quiz.</p>
+            <ul>
+                <li><i class="arrow fas fa-arrow-right"></i> Each quiz has a time limit of 15 minutes.</li>
+                <li><i class="arrow fas fa-arrow-right"></i> Ensure a stable internet connection while taking the quiz.</li>
+                <li><i class="arrow fas fa-arrow-right"></i> External help like books or online resources is not allowed.</li>
+                <li><i class="arrow fas fa-arrow-right"></i> All questions must be answered before submitting.</li>
+                <li><i class="arrow fas fa-arrow-right"></i> Results will be displayed immediately after submission.</li>
+            </ul>
+        </div>
+
+        <div class="bottom-bar">
+            <div class="select-subject">
+                <label for="subject">Select Subject:</label>
+                <select id="subject">
+                    <option value="default">-- Choose a Subject --</option>
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="html-css">HTML & CSS</option>
+                    <option value="data-structures">Data Structures</option>
+                    <option value="algorithms">Algorithms</option>
+                </select>
+            </div>
+
+            <div class="start-button-container">
+                <button id="startQuiz">Start Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+body {
+    background-color: blanchedalmond; 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #4CAF50; 
+    color: white;
+  }
+
+  header .company-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  header nav ul li a:hover {
+    text-decoration: underline;
+  }
+
+  header .logout-btn {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  header .logout-btn:hover {
+    background-color: #018786;
+  }
+
+  .faq-section {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .faq-question i {
+    color: #4CAF50;
+    margin-right: 10px;
+  }
+
+  .faq-answer {
+    margin-top: 0.5rem;
+    padding-left: 30px;
+    font-size: 1rem;
+    color: #555;
+}

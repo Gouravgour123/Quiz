@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Management</title>
+  <!-- <link rel="stylesheet" href="./Admin.css"> -->
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #444;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 40px;
+  background-color: #4CAF50;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .company-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+header nav ul li a i {
+  margin-right: 8px;
+}
+
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+header .logout-btn {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+header .logout-btn:hover {
+  background-color: #018786;
+}
+
+
+.main-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.stat-box {
+  background-color: blanchedalmond;
+  padding: 1.5rem;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.2rem;
+  width: 30%;
+}
+
+.form-layout {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 1rem; 
+}
+
+.add-subject, .add-question {
+  background-color: blanchedalmond;
+  padding: 1.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.add-subject {
+  width: 45%; 
+  background-color: blanchedalmond; 
+}
+
+
+.add-question {
+  width: 45%; 
+  background-color:blanchedalmond; 
+}
+
+.add-subject input, .add-question input, .add-question select {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.add-subject button, .add-question button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.add-subject button:hover, .add-question button:hover {
+  background-color: #45a049;
+}
+
+
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+      padding: 1rem;
+  }
+
+  header nav ul {
+      flex-direction: column;
+      gap: 1rem;
+  }
+
+  .stats {
+      flex-direction: column;
+      gap: 1rem;
+  }
+
+  .stat-box {
+      width: 100%;
+  }
+
+  .form-layout {
+      flex-direction: column;
+  }
+
+  .add-subject, .add-question {
+      width: 100%;
+  }
+}
+
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  
+  <header>
+    <div class="company-name">QuizeByte</div>
+    <nav>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="Quiz.html"><i class="fas fa-question-circle"></i> Take Quiz</a></li>
+        <li><a href="Admin.html"><i class="fas fa-edit"></i> Create Quiz</a></li>
+        <li><a href="Faq.html"><i class="fas fa-info-circle"></i> FAQ</a></li>
+      </ul>
+    </nav>
+    <button class="logout-btn">Logout</button>
+  </header>
+
+ 
+  <div class="main-content">
+    
+    <div class="stats">
+      <div class="stat-box">Teachers: 200</div>
+      <div class="stat-box">Students: 3000</div>
+      <div class="stat-box">Subjects: 8</div>
+    </div>
+
+    
+    <div class="form-layout">
+      <div class="add-subject">
+        <h2>Create Subject</h2>
+        <input type="text" id="subject-name" placeholder="Enter Subject Name">
+        <button onclick="addSubject()">Add Subject</button>
+      </div>
+      <div class="add-question">
+        <h2>Create Questions</h2>
+        <select id="subject-select">
+          <option value="">Choose Subject</option>
+        </select>
+        <input type="text" id="question" placeholder="Enter Your Question">
+        <input type="text" id="option1" placeholder="Option 1">
+        <input type="text" id="option2" placeholder="Option 2">
+        <input type="text" id="option3" placeholder="Option 3">
+        <input type="text" id="option4" placeholder="Option 4">
+        <button onclick="addQuestion()">Add Question</button>
+      </div>
+    </div>
+  </div> <script>
+    // const scriptURL = "YOUR_GOOGLE_SHEET_SCRIPT_URL"; // Replace with your actual Google Apps Script URL.
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxnY2l39HbCbO-PxHYSwNo4h7nIQmKbkXp7YhjV-wQGExR_yThCLJd9FVGhLW4hnm6fuA/exec"; // Replace with your actual Google Apps Script URL.
+
+    function addSubject() {
+      const subjectName = document.getElementById("subject-name").value;
+      if (subjectName) {
+        const subjectSelect = document.getElementById("subject-select");
+        const option = document.createElement("option");
+        option.value = subjectName;
+        option.textContent = subjectName;
+        subjectSelect.appendChild(option);
+        document.getElementById("subject-name").value = "";
+        alert("Subject added successfully.");
+      } else {
+        alert("Please enter a subject name.");
+      }
+    }
+    async function addQuestion() {
+  const subject = document.getElementById("subject-select").value;
+  const question = document.getElementById("question").value;
+  const option1 = document.getElementById("option1").value;
+  const option2 = document.getElementById("option2").value;
+  const option3 = document.getElementById("option3").value;
+  const option4 = document.getElementById("option4").value;
+
+  if (subject && question && option1 && option2 && option3 && option4) {
+    const questionData = {
+      subject,
+      question,
+      options: [option1, option2, option3, option4],
+    };
+
+    try {
+      const response = await fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(questionData),
+        headers: { 
+          "Content-Type": "application/json",
+        },
+        mode: "cors", // This enables cross-origin requests
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        alert("Question added successfully: " + result.message);
+        document.getElementById("question").value = "";
+        document.getElementById("option1").value = "";
+        document.getElementById("option2").value = "";
+        document.getElementById("option3").value = "";
+        document.getElementById("option4").value = "";
+      } else {
+        alert("Failed to store question in Google Sheet.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred while storing the question.");
+    }
+  } else {
+    alert("Please fill all fields.");
+  }
+}
+
+
+    // async function addQuestion() {
+    //   const subject = document.getElementById("subject-select").value;
+    //   const question = document.getElementById("question").value;
+    //   const option1 = document.getElementById("option1").value;
+    //   const option2 = document.getElementById("option2").value;
+    //   const option3 = document.getElementById("option3").value;
+    //   const option4 = document.getElementById("option4").value;
+
+    //   if (subject && question && option1 && option2 && option3 && option4) {
+    //     const questionData = {
+    //       subject,
+    //       question,
+    //       options: [option1, option2, option3, option4],
+    //     };
+
+    //     try {
+    //       const response = await fetch(scriptURL, {
+    //         method: "POST",
+    //         body: JSON.stringify(questionData),
+    //         headers: { "Content-Type": "application/json" },
+    //       });
+
+    //       if (response.ok) {
+    //         alert("Question added successfully and stored in Google Sheet.");
+    //         document.getElementById("question").value = "";
+    //         document.getElementById("option1").value = "";
+    //         document.getElementById("option2").value = "";
+    //         document.getElementById("option3").value = "";
+    //         document.getElementById("option4").value = "";
+    //       } else {
+    //         alert("Failed to store question in Google Sheet.");
+    //       }
+    //     } catch (error) {
+    //       console.error("Error:", error);
+    //       alert("An error occurred while storing the question.");
+    //     }
+    //   } else {
+    //     alert("Please fill all fields.");
+    //   }
+    // }
+  </script>
+
+  <!-- <script src="Admin.js"></script> -->
+</body>
+</html>

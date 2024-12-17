@@ -1,0 +1,161 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #444;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 40px;
+  background-color: #4CAF50;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .company-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+header nav ul li a i {
+  margin-right: 8px;
+}
+
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+header .logout-btn {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+header .logout-btn:hover {
+  background-color: #018786;
+}
+
+
+.main-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.stat-box {
+  background-color: blanchedalmond;
+  padding: 1.5rem;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.2rem;
+  width: 30%;
+}
+
+.form-layout {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 1rem; 
+}
+
+.add-subject, .add-question {
+  background-color: blanchedalmond;
+  padding: 1.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.add-subject {
+  width: 45%; 
+  background-color: blanchedalmond; 
+}
+
+
+.add-question {
+  width: 45%; 
+  background-color:blanchedalmond; 
+}
+
+.add-subject input, .add-question input, .add-question select {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.add-subject button, .add-question button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.add-subject button:hover, .add-question button:hover {
+  background-color: #45a049;
+}
+
+
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+      padding: 1rem;
+  }
+
+  header nav ul {
+      flex-direction: column;
+      gap: 1rem;
+  }
+
+  .stats {
+      flex-direction: column;
+      gap: 1rem;
+  }
+
+  .stat-box {
+      width: 100%;
+  }
+
+  .form-layout {
+      flex-direction: column;
+  }
+
+  .add-subject, .add-question {
+      width: 100%;
+  }
+}
